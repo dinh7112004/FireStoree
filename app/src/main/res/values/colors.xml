@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="ChuDe">#D17842</color>
+    <color name="mauNen">#0C0F14</color>
+    <color name="XamNhat">#BDBDBD</color>
+    <color name="MauHint">#52555A</color>
+    <color name="maunen">#1E1E1E</color>
+    <color name="favorite_color">#D17842</color>
+    <color name="tab_unselected">#888888</color>
+    <color name="tab_selected">#D17842</color>
+    <color name="gray">#AAAAAA</color>
+
+    <color name="colorBackgroundDark">#121212</color> <color name="colorSurfaceDark">#1F1F1F</color>   <color name="colorTextDark">#FFFFFF</color>       <color name="colorTextSecondary">#BDBDBD</color>  <color name="colorPrimary">#FF5722</color>
+</resources>

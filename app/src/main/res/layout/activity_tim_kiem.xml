@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:background="#121212"
+    android:padding="16dp"
+    tools:context=".TimKiem">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Nút back + thanh tìm kiếm -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageButton
+                android:id="@+id/btnBackSearch"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:background="@drawable/bg_back_button"
+                android:padding="8dp"
+                android:src="@drawable/back_icon"
+                android:contentDescription="Back" />
+
+            <EditText
+                android:id="@+id/edtSearch"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:layout_marginStart="12dp"
+                android:background="@drawable/bg_search_box"
+                android:hint="Áo trẻ em"
+                android:paddingHorizontal="16dp"
+                android:textColorHint="#AAAAAA"
+                android:textColor="#FFFFFF"
+                android:inputType="text"
+                android:drawableEnd="@drawable/ic_search"
+                android:drawablePadding="8dp" />
+        </LinearLayout>
+
+        <!-- Tiêu đề gợi ý -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Có thể bạn muốn tìm"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <!-- Gợi ý danh mục dùng GridLayout -->
+        <GridLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:columnCount="2"
+            android:alignmentMode="alignMargins"
+            android:useDefaultMargins="true">
+
+            <Button
+                style="@style/SearchCategoryButton"
+                android:text="Áo trẻ em" />
+
+            <Button
+                style="@style/SearchCategoryButton"
+                android:text="Áo phụ nữ" />
+
+            <Button
+                style="@style/SearchCategoryButton"
+                android:text="Áo nam" />
+
+            <Button
+                style="@style/SearchCategoryButton"
+                android:text="Áo trẻ em 1 tuổi" />
+        </GridLayout>
+
+        <!-- Danh sách gợi ý văn bản -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Áo trẻ em"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Áo polo nam"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                android:layout_marginTop="6dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Áo phông nữ"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                android:layout_marginTop="6dp" />
+        </LinearLayout>
+
+        <!-- Grid sản phẩm -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcvProducts"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:overScrollMode="never"
+            android:clipToPadding="false"
+            android:paddingBottom="80dp" />
+
+    </LinearLayout>
+</ScrollView>

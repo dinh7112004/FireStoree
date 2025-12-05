@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mauNen"
+    tools:context=".ManThongTinDonHang">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/quayLaiBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="@android:color/transparent"
+            android:src="@drawable/quay_lai_img" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:text="Thông tin đơn hàng"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:fontFamily="@font/poppins_bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingHorizontal="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/thoiGianDuKienTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="Thời gian dự kiến 3/11 - 5/11"
+            android:textColor="@color/XamNhat"
+            android:background="@drawable/nen_item_chu_de"
+            android:textSize="17dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:padding="10dp" />
+
+        <TextView
+            android:id="@+id/diaChiNhanHangTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Địa chỉ nhận hàng"
+            android:textColor="@color/white"
+            android:textSize="17dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/poppins_semibold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/ic_location_pin" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tenNguoiNhanTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nguyễn Văn A"
+                    android:textColor="@color/white"
+                    android:textSize="17dp"
+                    android:fontFamily="@font/poppins_semibold" />
+
+                <TextView
+                    android:id="@+id/diaChiTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Xóm 1, Xã Giao Hà, Giao thuỷ, Nam Định"
+                    android:textColor="@color/white"
+                    android:textSize="12dp"
+                    android:fontFamily="@font/poppins_semibold" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/theDonHangConstraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:paddingVertical="10dp"
+            android:paddingHorizontal="20dp"
+            android:background="@drawable/nen_item_chu_de"
+            app:layout_constraintTop_toBottomOf="@id/diaChiTextView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <TextView
+                android:id="@+id/fiveStoreTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="FiveStore"
+                android:textColor="@color/ChuDe"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="20dp"
+                android:layout_marginLeft="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/anhDonHangImageView"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@color/XamNhat"
+                app:layout_constraintTop_toBottomOf="@+id/fiveStoreTextView"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/tenSanPhamTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Áo trẻ em"
+                android:textColor="@color/white"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="17dp"
+                android:layout_marginLeft="10dp"
+                app:layout_constraintStart_toEndOf="@id/anhDonHangImageView"
+                app:layout_constraintTop_toBottomOf="@id/fiveStoreTextView" />
+
+            <TextView
+                android:id="@+id/tongTienSanPhamTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tổng tiền sản phẩm"
+                android:textColor="@color/white"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="12dp"
+                android:layout_marginLeft="10dp"
+                app:layout_constraintStart_toEndOf="@id/anhDonHangImageView"
+                app:layout_constraintTop_toBottomOf="@id/tenSanPhamTextView" />
+
+            <TextView
+                android:id="@+id/tongTienTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="119.000"
+                android:textColor="@color/white"
+                android:fontFamily="@font/poppins_semibold"
+                android:textSize="15dp"
+                android:layout_marginLeft="10dp"
+                app:layout_constraintStart_toEndOf="@id/anhDonHangImageView"
+                app:layout_constraintTop_toBottomOf="@id/tongTienSanPhamTextView" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="VND"
+                android:textColor="@color/ChuDe"
+                android:fontFamily="@font/poppins_semibold"
+                android:textSize="15dp"
+                android:layout_marginLeft="5dp"
+                app:layout_constraintStart_toEndOf="@id/tongTienTextView"
+                app:layout_constraintTop_toBottomOf="@id/tongTienSanPhamTextView" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/huyDonHangButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:padding="10dp"
+                android:textColor="@color/white"
+                android:text="Hủy đơn hàng"
+                android:fontFamily="@font/poppins_semibold"
+                android:textSize="10dp"
+                android:background="@drawable/nut_don_hang" />
+
+            <TextView
+                android:id="@+id/lienHeShopButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:padding="10dp"
+                android:textColor="@color/white"
+                android:text="Liên hệ shop"
+                android:fontFamily="@font/poppins_semibold"
+                android:textSize="10dp"
+                android:background="@drawable/nut_don_hang" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

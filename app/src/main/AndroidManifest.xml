@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MD08_UngDungFiveStore"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="31">
+        <activity
+            android:name=".CartActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SearchActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ResetPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".VerifyOtpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RequestOtpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".OtpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TimKiem"
+            android:exported="false" />
+        <activity
+            android:name=".XemChiTiet"
+            android:exported="false" />
+        <activity
+            android:name=".ManTrangChu"
+            android:exported="false" />
+        <activity
+            android:name=".ManDanhGiaSanPham"
+            android:exported="false" />
+        <activity
+            android:name=".CaiDatActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ThanhToanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ManDatHang"
+            android:exported="false" />
+        <activity
+            android:name=".ManLienHe"
+            android:exported="false" />
+        <activity
+            android:name=".ManThongTin"
+            android:exported="false" />
+        <activity
+            android:name=".ManDangKy"
+            android:exported="false" />
+        <activity
+            android:name=".ManChat"
+            android:exported="false" />
+        <activity
+            android:name=".GuiMaXacNhan"
+            android:exported="false" />
+        <activity
+            android:name=".DangNhap"
+            android:exported="false" /> <!-- Màn hình chào -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ManChao"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#111111"
+    android:orientation="vertical"
+    android:paddingTop="16dp"
+    tools:context=".fragments.TrangChuFragment">
+
+    <TextView
+        android:id="@+id/tvSubtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tìm quần áo yêu thích nhất của bạn"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:layout_margin="16dp"
+        android:fontFamily="@font/poppins_semibold" />
+
+    <EditText
+        android:id="@+id/timKiemEditText"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Tìm quần áo của bạn..."
+        android:padding="16dp"
+        android:layout_margin="16dp"
+        android:background="@drawable/bg_search"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#777777"
+        android:drawableStart="@drawable/ic_search"
+        android:focusable="false"   android:clickable="true"/>
+
+    <!-- Tabs All | Nam | Nữ | Trẻ em -->
+    <LinearLayout
+        android:id="@+id/layoutTabs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="8dp"
+        android:weightSum="4"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/tvAll"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:background="@drawable/bg_tab_text"
+            android:text="All"
+            android:textSize="16sp"
+            android:textColor="@color/tab_selected"
+            android:layout_marginEnd="4dp" />
+
+        <TextView
+            android:id="@+id/tvNam"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:background="@drawable/bg_tab_text"
+            android:text="Nam"
+            android:textSize="16sp"
+            android:textColor="@color/tab_unselected"
+            android:layout_marginEnd="4dp" />
+
+        <TextView
+            android:id="@+id/tvNu"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:background="@drawable/bg_tab_text"
+            android:text="Nữ"
+            android:textSize="16sp"
+            android:textColor="@color/tab_unselected"
+            android:layout_marginEnd="4dp" />
+
+        <TextView
+            android:id="@+id/tvTreEm"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:background="@drawable/bg_tab_text"
+            android:text="Trẻ em"
+            android:textSize="16sp"
+            android:textColor="@color/tab_unselected" />
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcvProducts"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:padding="16dp" />
+
+</LinearLayout>

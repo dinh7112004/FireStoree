@@ -1,0 +1,30 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <EditText
+        android:id="@+id/edtOtp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nhập mã OTP"
+        android:inputType="number"
+        android:padding="12dp"/>
+
+
+    <TextView
+        android:id="@+id/btnVerify"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/nen_nut"
+        android:fontFamily="@font/poppins_semibold"
+        android:padding="15dp"
+        android:text="Xác nhận OTP"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="14dp" />
+
+</LinearLayout>

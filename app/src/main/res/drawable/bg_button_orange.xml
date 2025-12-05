@@ -1,0 +1,4 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <solid android:color="#D17842"/> <!-- màu cam đồng bộ -->
+    <corners android:radius="12dp"/>
+</shape>

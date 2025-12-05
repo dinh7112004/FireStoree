@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    android:padding="16dp">
+
+    <!-- Nút X ở trên cùng bên phải -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/btnClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="X"
+            android:textSize="24sp"
+            android:textColor="#000000"
+            android:padding="8dp"
+            android:layout_alignParentEnd="true"/>
+    </RelativeLayout>
+
+    <!-- Ảnh sản phẩm + Giá tiền + Kho -->
+    <RelativeLayout
+        android:layout_width="377dp"
+        android:layout_height="195dp"
+        android:layout_marginTop="8dp">
+
+        <!-- Ảnh sản phẩm -->
+        <ImageView
+            android:id="@+id/ivProductImage"
+            android:layout_width="233dp"
+            android:layout_height="247dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="9dp"
+            android:contentDescription="Product Image"
+            android:scaleType="centerInside" />
+
+        <!-- Giá tiền + Kho nằm bên phải ảnh, dưới cùng -->
+        <LinearLayout
+            android:id="@+id/layoutPriceStock"
+            android:layout_width="wrap_content"
+            android:layout_height="88dp"
+            android:layout_alignBottom="@id/ivProductImage"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="0dp"
+            android:layout_toEndOf="@id/ivProductImage"
+            android:orientation="vertical">
+
+            <!-- Số tiền với dấu chấm -->
+            <TextView
+                android:id="@+id/tvProductPriceNew"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="123.000đ"
+                android:textColor="#D17842"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <!-- Kho màu đen -->
+            <TextView
+                android:id="@+id/tvProductStock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Kho: 0"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <!-- Màu sắc -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Màu sắc"
+        android:textSize="18sp"
+        android:textColor="#D17842"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp" />
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+        <LinearLayout
+            android:id="@+id/layoutColors"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"/>
+    </HorizontalScrollView>
+
+    <!-- Size -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Size"
+        android:textSize="18sp"
+        android:textColor="#D17842"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"/>
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+        <LinearLayout
+            android:id="@+id/layoutSizes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"/>
+    </HorizontalScrollView>
+
+    <!-- Dòng Số lượng -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="#FFFFFF"
+        android:padding="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp">
+
+        <!-- Label Số lượng -->
+        <TextView
+            android:id="@+id/tvQuantityLabel"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="Số lượng"
+            android:textSize="16sp"
+            android:textColor="#D17842"
+            android:layout_marginEnd="8dp"/>
+
+        <!-- Nút giảm -->
+        <ImageButton
+            android:id="@+id/btnDecrease"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_minus"
+            android:background="@android:color/transparent"
+            android:scaleType="centerInside"/>
+
+        <!-- Text hiển thị số lượng -->
+        <TextView
+            android:id="@+id/tvQuantity"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="1"
+            android:textSize="16sp"
+            android:textColor="#D17842"/>
+
+        <!-- Nút tăng -->
+        <ImageButton
+            android:id="@+id/btnIncrease"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_add"
+            android:background="@android:color/transparent"
+            android:scaleType="centerInside"/>
+    </LinearLayout>
+
+    <!-- Nút Mua Ngay -->
+    <TextView
+        android:id="@+id/btnBuyNow"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:gravity="center"
+        android:text="Mua ngay"
+        android:textSize="20sp"
+        android:textColor="#FFFFFF"
+        android:background="#D17842"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"/>
+</LinearLayout>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <!-- Giỏ hàng -->
+    <path
+        android:fillColor="#D17842"
+        android:pathData="M7,18c-0.83,0 -1.5,0.67 -1.5,1.5S6.17,21 7,21s1.5,-0.67 1.5,-1.5S7.83,18 7,18zM17,18c-0.83,0 -1.5,0.67 -1.5,1.5S16.17,21 17,21s1.5,-0.67 1.5,-1.5S17.83,18 17,18zM7.16,14.26l-0.95,-4.29h11.74l-1.1,4.29H7.16zM20,6h-2.21L16.21,3.62C16.08,3.26 15.73,3 15.33,3H6.67C6.27,3 5.92,3.26 5.79,3.62L4.21,7H2v2h2l1.6,6.59c0.1,0.42 0.48,0.71 0.91,0.71h9c0.43,0 0.81,-0.29 0.91,-0.71L20,8V6z" />
+
+    <!-- Dấu cộng -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M12,8v4m0,0v4m0,-4h4m-4,0H8"
+        android:strokeWidth="2"
+        android:strokeColor="#FFFFFF"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+
+</vector>
