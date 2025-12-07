@@ -17,8 +17,26 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".OrderHistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ManChiTietDonHang"
+            android:exported="false" />
+        <activity
+            android:name=".OrderSuccessActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CheckoutActivity"
+            android:exported="false" />
+        <activity
             android:name=".CartActivity"
             android:exported="false" />
+
+        <activity
+            android:name=".ManDonHang"
+            android:exported="false"
+     />
+
         <activity
             android:name=".SearchActivity"
             android:exported="false" />

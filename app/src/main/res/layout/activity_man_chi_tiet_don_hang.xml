@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mauNen" android:orientation="vertical"
+    tools:context=".ManChiTietDonHang">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_back"
+            app:tint="@color/white"
+            android:contentDescription="Quay lại" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Chi tiết Đơn hàng"
+            android:layout_marginStart="16dp"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp">
+
+            <TextView
+                style="@style/SectionTitle"
+                android:layout_marginTop="0dp"
+                android:text="Trạng thái đơn hàng" />
+
+            <TextView
+                android:id="@+id/tvDetailStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="#D17842"
+                android:textSize="18sp"
+                android:paddingBottom="10dp"
+                tools:text="Đang giao hàng (Dự kiến 2 ngày)" />
+
+            <TextView
+                style="@style/SectionTitle"
+                android:text="Mã đơn hàng" />
+
+            <TextView
+                android:id="@+id/tvDetailOrderId"
+                style="@style/SectionContent"
+                tools:text="#5e1a3b2e3f4a5b6c7d8e9f0d" />
+
+            <TextView
+                style="@style/SectionTitle"
+                android:text="Ngày đặt" />
+
+            <TextView
+                android:id="@+id/tvDetailOrderDate"
+                style="@style/SectionContent"
+                tools:text="15:30, 05/12/2025" />
+
+            <View style="@style/Divider" />
+
+
+            <TextView
+                style="@style/SectionTitle"
+                android:text="Địa chỉ giao hàng" />
+
+            <TextView
+                android:id="@+id/tvDetailAddress"
+                style="@style/SectionContent"
+                tools:text="Nguyễn Văn A | 0987xxxxxx\nSố nhà 10, Đường 3, Phường B, Quận C, TP. HCM" />
+
+            <TextView
+                style="@style/SectionTitle"
+                android:text="Phương thức thanh toán" />
+
+            <TextView
+                android:id="@+id/tvDetailPaymentMethod"
+                style="@style/SectionContent"
+                tools:text="Thanh toán khi nhận hàng (COD)" />
+
+            <View style="@style/Divider" />
+
+
+            <TextView
+                style="@style/SectionTitle"
+                android:text="Các sản phẩm" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcvOrderItems"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                tools:layout_height="150dp"
+                tools:itemCount="2"
+                tools:listitem="@layout/item_detail_product" />
+
+            <View style="@style/Divider" />
+
+
+            <TextView
+                style="@style/SectionTitle"
+                android:text="Tổng quan thanh toán" />
+
+            <LinearLayout style="@style/SummaryRow">
+                <TextView style="@style/SummaryLabel" android:text="Tạm tính:"/>
+                <TextView android:id="@+id/tvSummarySubtotal" style="@style/SummaryValue" tools:text="700,000 VNĐ"/>
+            </LinearLayout>
+
+            <LinearLayout style="@style/SummaryRow">
+                <TextView style="@style/SummaryLabel" android:text="Phí vận chuyển:"/>
+                <TextView android:id="@+id/tvSummaryShippingFee" style="@style/SummaryValue" tools:text="30,000 VNĐ"/>
+            </LinearLayout>
+
+            <LinearLayout style="@style/SummaryRow">
+                <TextView style="@style/SummaryLabel" android:textStyle="bold" android:text="Tổng cộng:"/>
+                <TextView android:id="@+id/tvSummaryTotal" style="@style/SummaryValue" android:textColor="#D17842" android:textStyle="bold" android:textSize="18sp" tools:text="730,000 VNĐ"/>
+            </LinearLayout>
+
+            <View android:layout_width="match_parent" android:layout_height="20dp"/>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <Button
+        android:id="@+id/btnDetailAction"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:backgroundTint="#D17842"
+        android:fontFamily="@font/poppins_bold"
+        android:text="HỦY ĐƠN HÀNG"
+        android:textColor="@color/white"
+        android:visibility="visible"
+        tools:visibility="visible"/>
+</LinearLayout>

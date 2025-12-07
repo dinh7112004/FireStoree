@@ -1,5 +1,6 @@
 package com.example.md_08_ungdungfivestore.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,8 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.md_08_ungdungfivestore.CheckoutActivity;
+import com.example.md_08_ungdungfivestore.MainActivity; // ⭐ IMPORT MainActivity
 import com.example.md_08_ungdungfivestore.R;
 import com.example.md_08_ungdungfivestore.adapters.CartAdapter;
 import com.example.md_08_ungdungfivestore.models.CartItem;
@@ -34,6 +37,7 @@ public class GioHangFragment extends Fragment implements CartAdapter.CartItemAct
     private RecyclerView rcvCart;
     private TextView tvTotal;
     private MaterialButton thanhToanBtn;
+    private TextView tvEmptyCart;
 
     private final List<CartItem> cartItems = new ArrayList<>();
     private CartAdapter cartAdapter;
@@ -47,8 +51,9 @@ public class GioHangFragment extends Fragment implements CartAdapter.CartItemAct
         rcvCart = view.findViewById(R.id.rcvCart);
         tvTotal = view.findViewById(R.id.tvTotal);
         thanhToanBtn = view.findViewById(R.id.thanhToanBtn);
+        // Cần ánh xạ TextView báo giỏ hàng trống trong layout fragment_gio_hang.xml nếu có
+        // tvEmptyCart = view.findViewById(R.id.tvEmptyCart);
 
-        // ⚠️ Đảm bảo ApiClientCart đang dùng cổng 5001
         if (getContext() != null) {
             cartService = ApiClientCart.getCartService(getContext());
         }
@@ -57,17 +62,39 @@ public class GioHangFragment extends Fragment implements CartAdapter.CartItemAct
         rcvCart.setLayoutManager(new LinearLayoutManager(getContext()));
         rcvCart.setAdapter(cartAdapter);
 
-        thanhToanBtn.setOnClickListener(v -> {
-            // Logic Thanh toán
-        });
+        thanhToanBtn.setOnClickListener(v -> navigateToCheckout());
 
+        // Tải giỏ hàng lần đầu khi Fragment được tạo
         fetchCartItems();
 
         return view;
     }
 
-    // --- LOGIC TẢI DỮ LIỆU TỪ API ---
-    private void fetchCartItems() {
+    @Override
+    public void onResume() {
+        super.onResume();
+        // BỎ fetchCartItems() ở đây, vì chúng ta sẽ dùng ActivityResultLauncher
+        // để chỉ tải lại khi Thanh toán thành công.
+    }
+
+    // ⭐ LOGIC CHUYỂN MÀN HÌNH THANH TOÁN (SỬ DỤNG LAUNCHER TỪ MAINACTIVITY)
+    private void navigateToCheckout() {
+        if (cartItems.isEmpty()) {
+            Toast.makeText(getContext(), "Giỏ hàng của bạn đang trống. Vui lòng thêm sản phẩm!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (getActivity() instanceof MainActivity) {
+            Intent intent = new Intent(getContext(), CheckoutActivity.class);
+            ((MainActivity) getActivity()).getCheckoutResultLauncher().launch(intent);
+        } else if (getContext() != null) {
+            Intent intent = new Intent(getContext(), CheckoutActivity.class);
+            startActivity(intent);
+        }
+    }
+
+    // --- LOGIC TẢI DỮ LIỆU TỪ API (LÀM PUBLIC ĐỂ MAINACTIVITY GỌI) ---
+    public void fetchCartItems() {
         if (cartService == null) return;
 
         cartService.getCartItems().enqueue(new Callback<CartResponse>() {
@@ -82,6 +109,7 @@ public class GioHangFragment extends Fragment implements CartAdapter.CartItemAct
                     }
                     cartAdapter.notifyDataSetChanged();
                     updateTotalPrice();
+                    // updateEmptyView();
                 } else {
                     Toast.makeText(getContext(), "Lỗi tải giỏ hàng: " + response.code(), Toast.LENGTH_SHORT).show();
                 }
@@ -104,7 +132,8 @@ public class GioHangFragment extends Fragment implements CartAdapter.CartItemAct
         tvTotal.setText(formattedTotal);
     }
 
-    // --- Cập nhật số lượng (Đã Tối ưu hóa xử lý lỗi) ---
+    // ... (onQuantityChange và onDelete giữ nguyên logic tối ưu hóa)
+
     @Override
     public void onQuantityChange(CartItem item, int newQuantity) {
         if (cartService == null || newQuantity < 1) return;
@@ -117,23 +146,16 @@ public class GioHangFragment extends Fragment implements CartAdapter.CartItemAct
                 if (response.isSuccessful() && response.body() != null) {
                     List<CartItem> updatedItems = response.body().getItems();
 
-                    // ✅ LOGIC TỐI ƯU: Chỉ cập nhật nếu danh sách không bị NULL
                     if (updatedItems != null) {
                         cartItems.clear();
                         cartItems.addAll(updatedItems);
                         cartAdapter.notifyDataSetChanged();
                         updateTotalPrice();
-
-                        if (response.body().getMessage() != null) {
-                            Toast.makeText(getContext(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
-                        }
                     } else {
-                        // Trường hợp lỗi Backend trả về 200 nhưng items là null
                         Toast.makeText(getContext(), "Lỗi dữ liệu. Đang đồng bộ lại...", Toast.LENGTH_SHORT).show();
-                        fetchCartItems(); // Tải lại giỏ hàng
+                        fetchCartItems();
                     }
                 } else {
-                    // Nếu thất bại (hết hàng, 4xx, 5xx), TẢI LẠI để đồng bộ trạng thái đúng từ server
                     Toast.makeText(getContext(), "Cập nhật thất bại. Tải lại.", Toast.LENGTH_SHORT).show();
                     fetchCartItems();
                 }
@@ -146,7 +168,6 @@ public class GioHangFragment extends Fragment implements CartAdapter.CartItemAct
         });
     }
 
-    // --- Xóa sản phẩm (Đã Tối ưu hóa xử lý lỗi) ---
     @Override
     public void onDelete(CartItem item) {
         if (cartService == null) return;
@@ -157,7 +178,6 @@ public class GioHangFragment extends Fragment implements CartAdapter.CartItemAct
                 if (response.isSuccessful() && response.body() != null) {
                     List<CartItem> updatedItems = response.body().getItems();
 
-                    // ✅ LOGIC TỐI ƯU: Chỉ cập nhật nếu danh sách không bị NULL
                     if (updatedItems != null) {
                         cartItems.clear();
                         cartItems.addAll(updatedItems);
@@ -168,13 +188,12 @@ public class GioHangFragment extends Fragment implements CartAdapter.CartItemAct
                             Toast.makeText(getContext(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     } else {
-                        // Trường hợp lỗi Backend trả về 200 nhưng items là null
                         Toast.makeText(getContext(), "Lỗi dữ liệu. Đang đồng bộ lại...", Toast.LENGTH_SHORT).show();
-                        fetchCartItems(); // Tải lại giỏ hàng
+                        fetchCartItems();
                     }
                 } else {
                     Toast.makeText(getContext(), "Xóa sản phẩm thất bại. Tải lại.", Toast.LENGTH_SHORT).show();
-                    fetchCartItems(); // Tải lại giỏ hàng
+                    fetchCartItems();
                 }
             }
 
