@@ -56,13 +56,15 @@
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <!-- Mật khẩu -->
+    <!-- Mật khẩu -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/matKhauTextInputLayout"
         android:layout_width="0dp"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/edtEmailDangNhap"
         app:passwordToggleEnabled="true"
-        app:hintEnabled="false"
+        app:hintEnabled="true"
+        android:hint="Mật khẩu"
         android:layout_marginTop="12dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
@@ -70,22 +72,23 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/matKhauTextInputEditText"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="Mật khẩu"
-            android:textColorHint="#999999"
+            android:layout_height="wrap_content"
             android:inputType="textPassword"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#999999"
             android:background="@drawable/bg_login"
-            android:padding="0dp"/>
+            android:padding="12dp"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <!-- Nhập lại mật khẩu -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/nhapLaiMatKhauTextInputLayout"
         android:layout_width="0dp"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/matKhauTextInputLayout"
         app:passwordToggleEnabled="true"
-        app:hintEnabled="false"
+        app:hintEnabled="true"
+        android:hint="Nhập lại mật khẩu"
         android:layout_marginTop="12dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
@@ -93,13 +96,14 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/nhapLaiMatKhauTextInputEditText"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="Nhập lại mật khẩu"
-            android:textColorHint="#999999"
+            android:layout_height="wrap_content"
             android:inputType="textPassword"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#999999"
             android:background="@drawable/bg_login"
-            android:padding="0dp"/>
+            android:padding="12dp"/>
     </com.google.android.material.textfield.TextInputLayout>
+
 
     <!-- Nút đăng ký -->
     <TextView

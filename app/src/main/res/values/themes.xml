@@ -1,8 +1,25 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.MD08_UngDungFiveStore" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <!-- Màu chủ đề chính -->
+        <item name="colorPrimary">@color/ChuDe</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+        <!-- Màu hint cho TextInputLayout -->
+        <item name="hintTextColor">@color/XamNhat</item>
+
+        <!-- Màu cho TextInputLayout khi focus -->
+        <item name="colorControlActivated">@color/ChuDe</item>
+
+        <!-- Màu cho đường viền TextInputLayout -->
+        <item name="colorOutline">@color/XamNhat</item>
+
+        <!-- Màu cho icon con mắt (password toggle) -->
+        <item name="colorOnSurface">@color/white</item>
+
+        <item name="colorControlNormal">@color/white</item>
+        <item name="colorOnSurface">@color/white</item>
+
     </style>
 
     <style name="Theme.MD08_UngDungFiveStore" parent="Base.Theme.MD08_UngDungFiveStore" />

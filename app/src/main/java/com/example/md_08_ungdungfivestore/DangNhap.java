@@ -45,11 +45,40 @@ public class DangNhap extends AppCompatActivity {
             String email = edtEmail.getText().toString().trim();
             String password = edtPassword.getText().toString().trim();
 
-            if(email.isEmpty() || password.isEmpty()){
-                Toast.makeText(DangNhap.this, "Điền đầy đủ thông tin", Toast.LENGTH_SHORT).show();
+            // ===== Kiểm tra rỗng =====
+            if (email.isEmpty()) {
+                edtEmail.setError("Vui lòng nhập email");
+                edtEmail.requestFocus();
                 return;
             }
 
+            if (password.isEmpty()) {
+                edtPassword.setError("Vui lòng nhập mật khẩu");
+                edtPassword.requestFocus();
+                return;
+            }
+
+            // ===== Kiểm tra định dạng email =====
+            if (!email.contains("@") || !email.contains(".")) {
+                edtEmail.setError("Email không hợp lệ gồm có ( @,. )");
+                edtEmail.requestFocus();
+                return;
+            }
+
+            // ===== Kiểm tra mật khẩu =====
+            if (password.length() < 6) {
+                edtPassword.setError("Mật khẩu phải từ 6 ký tự trở lên ");
+                edtPassword.requestFocus();
+                return;
+            }
+
+            if (!password.matches(".*[A-Za-z].*") || !password.matches(".*\\d.*")) {
+                edtPassword.setError("Mật khẩu phải bao gồm cả chữ và số");
+                edtPassword.requestFocus();
+                return;
+            }
+
+            // Nếu hợp lệ, gọi API login
             loginUser(email, password);
         });
 

@@ -23,4 +23,7 @@ public interface ApiService {
     // Login trả về AuthResponse
     @POST("login")
     Call<AuthResponse> login(@Body LoginRequest request);
+    @POST("auth/resend-otp")
+    Call<AuthResponse> resendOtp(@Body OtpRequest request);
+
 }

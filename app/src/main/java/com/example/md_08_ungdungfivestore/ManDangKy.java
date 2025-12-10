@@ -51,19 +51,47 @@ public class ManDangKy extends AppCompatActivity {
             String matKhau = edtMatKhau.getText().toString().trim();
             String nhapLaiMatKhau = edtNhapLaiMatKhau.getText().toString().trim();
 
+            // Kiểm tra rỗng
             if (ten.isEmpty() || email.isEmpty() || matKhau.isEmpty() || nhapLaiMatKhau.isEmpty()) {
                 Toast.makeText(ManDangKy.this, "Vui lòng điền đầy đủ thông tin", Toast.LENGTH_SHORT).show();
                 return;
             }
 
+            // Kiểm tra tên không chứa số hoặc ký tự đặc biệt
+            if (!ten.matches("^[\\p{L} ]+$")) {
+                Toast.makeText(ManDangKy.this, "Tên không hợp lệ. Chỉ được chứa chữ cái và khoảng trắng", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            // Kiểm tra định dạng email
+            if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                Toast.makeText(ManDangKy.this, "Email không hợp lệ !", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            // Kiểm tra độ dài mật khẩu
+            if (matKhau.length() < 6) {
+                Toast.makeText(ManDangKy.this, "Mật khẩu phải có ít nhất 6 ký tự !", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            // Kiểm tra mật khẩu phải có ít nhất 1 chữ cái và 1 số
+            if (!matKhau.matches("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{6,}$")) {
+                Toast.makeText(ManDangKy.this, "Mật khẩu phải có chữ và số!", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+
+            // Kiểm tra mật khẩu nhập lại
             if (!matKhau.equals(nhapLaiMatKhau)) {
-                Toast.makeText(ManDangKy.this, "Mật khẩu nhập lại không khớp", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ManDangKy.this, "Mật khẩu nhập lại không khớp !", Toast.LENGTH_SHORT).show();
                 return;
             }
 
             // Gọi API tạo OTP
             dangKyTaoOtp(ten, email, matKhau);
         });
+
     }
 
     private void dangKyTaoOtp(String ten, String email, String matKhau) {
