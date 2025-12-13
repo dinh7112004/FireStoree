@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CheckoutActivity">
+    tools:context=".CheckoutActivity"
+    android:background="@android:color/black">
 
     <ScrollView
         android:id="@+id/scrollView"
@@ -25,6 +26,7 @@
                 android:text="THÔNG TIN THANH TOÁN"
                 android:textSize="20sp"
                 android:textStyle="bold"
+                android:textColor="#ffff"
                 android:layout_marginBottom="16dp"/>
 
             <TextView
@@ -33,6 +35,7 @@
                 android:text="Địa chỉ giao hàng"
                 android:textSize="18sp"
                 android:textStyle="bold"
+                android:textColor="#ffff"
                 android:layout_marginTop="8dp"/>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -46,7 +49,9 @@
                     android:layout_height="wrap_content"
                     android:hint="Tên người nhận"
                     android:inputType="textPersonName"
-                    android:importantForAutofill="no" />
+                    android:importantForAutofill="no"
+                    android:textColor="@android:color/white"
+                    android:hintTextColor="@android:color/darker_gray"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -60,7 +65,9 @@
                     android:layout_height="wrap_content"
                     android:hint="Số điện thoại"
                     android:inputType="phone"
-                    android:importantForAutofill="no" />
+                    android:importantForAutofill="no"
+                    android:textColor="@android:color/white"
+                    android:hintTextColor="@android:color/darker_gray"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -74,7 +81,9 @@
                     android:layout_height="wrap_content"
                     android:hint="Số nhà, tên đường"
                     android:inputType="textPostalAddress"
-                    android:importantForAutofill="no" />
+                    android:importantForAutofill="no"
+                    android:textColor="@android:color/white"
+                    android:hintTextColor="@android:color/darker_gray"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -88,7 +97,9 @@
                     android:layout_height="wrap_content"
                     android:hint="Tỉnh/Thành phố"
                     android:inputType="text"
-                    android:importantForAutofill="no" />
+                    android:importantForAutofill="no"
+                    android:textColor="@android:color/white"
+                    android:hintTextColor="@android:color/darker_gray"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -102,7 +113,9 @@
                     android:layout_height="wrap_content"
                     android:hint="Quận/Huyện"
                     android:inputType="text"
-                    android:importantForAutofill="no" />
+                    android:importantForAutofill="no"
+                    android:textColor="@android:color/white"
+                    android:hintTextColor="@android:color/darker_gray"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -116,7 +129,9 @@
                     android:layout_height="wrap_content"
                     android:hint="Phường/Xã"
                     android:inputType="text"
-                    android:importantForAutofill="no" />
+                    android:importantForAutofill="no"
+                    android:textColor="@android:color/white"
+                    android:hintTextColor="@android:color/darker_gray"/>
             </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -132,7 +147,8 @@
                 android:layout_height="wrap_content"
                 android:text="Phương thức thanh toán"
                 android:textSize="18sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:textColor="#ffff"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -140,7 +156,8 @@
                 android:text="Thanh toán khi nhận hàng (COD)"
                 android:textSize="16sp"
                 android:paddingTop="8dp"
-                android:paddingBottom="8dp"/>
+                android:paddingBottom="8dp"
+                android:textColor="#ffff"/>
 
             <View
                 android:layout_width="match_parent"
@@ -207,7 +224,8 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="16dp"
-        android:background="@android:color/white"
+        android:background="@android:color/black"
+
         app:layout_constraintBottom_toBottomOf="parent">
 
         <LinearLayout
@@ -222,7 +240,7 @@
                 android:text="TỔNG THANH TOÁN:"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                android:textColor="@android:color/black"/>
+                android:textColor="@android:color/white"/>
             <TextView
                 android:id="@+id/tvTotalAmount"
                 android:layout_width="wrap_content"

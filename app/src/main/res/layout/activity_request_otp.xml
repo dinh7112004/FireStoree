@@ -37,7 +37,9 @@
             android:id="@+id/edtEmailRequestOtp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textEmailAddress"/>
+            android:inputType="textEmailAddress"
+            android:textColor="@android:color/white"
+            android:hintTextColor="@android:color/darker_gray"/>
 
     </com.google.android.material.textfield.TextInputLayout>
     <Button

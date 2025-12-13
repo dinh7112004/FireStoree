@@ -5,6 +5,17 @@
     android:layout_height="match_parent"
     android:background="#121212">
 
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nhập mã OTP đã gửi đến Email bạn vừa đăng ký !"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#ffff"
+        android:layout_marginBottom="25dp"/>
+
     <!-- Ô nhập OTP -->
     <EditText
         android:id="@+id/edtOtp"
